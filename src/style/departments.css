@@ -1,0 +1,69 @@
+:root {
+    --color-primary: #0071ef;
+    --main-transition: all 0.3s ease-in-out;
+}
+
+.departments-section .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+}
+
+.departments-section .container .departments {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    width: 100%;
+    gap: 1.5rem 0;
+    justify-items: center;
+}
+
+.departments-section .container .departments .department {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 2rem;
+    background-color: #fff;
+    width: 90%;
+}
+
+.departments-section .container .departments .department .title {
+    text-transform: capitalize;
+}
+
+.departments-section .container .departments .department .department-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    text-transform: capitalize;
+    font-weight: bold;
+    transition: var(--main-transition);
+    -webkit-transition: var(--main-transition);
+    -moz-transition: var(--main-transition);
+    -ms-transition: var(--main-transition);
+    -o-transition: var(--main-transition);
+}
+
+.departments-section .container .departments .department .department-link i {
+    transition: var(--main-transition);
+    -webkit-transition: var(--main-transition);
+    -moz-transition: var(--main-transition);
+    -ms-transition: var(--main-transition);
+    -o-transition: var(--main-transition);
+}
+
+.departments-section .container .departments .department .department-link:hover {
+    color: var(--color-primary);
+}
+
+.departments-section .container .departments .department .department-link:hover i {
+    transform: translateX(.5rem);
+    -webkit-transform: translateX(.5rem);
+    -moz-transform: translateX(.5rem);
+    -ms-transform: translateX(.5rem);
+    -o-transform: translateX(.5rem);
+}
