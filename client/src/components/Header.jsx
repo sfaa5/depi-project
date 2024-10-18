@@ -42,13 +42,13 @@ const Header = () => {
       <div class="container">
         <ul>
 
-          <li><a href="index.html">Home</a></li>
+          <li><a href="">Home</a></li>
           <li><a href="#">Departments</a></li>
           <li><a href="doctors.html">Doctors</a></li>
-          <li><a href="#">Services</a></li>
-          <li><a href="#">Blog</a></li>
-          <li><a href="about-us.html">About us</a></li>
-          <li><a href="#">Contact Us</a></li>
+          <li><a href="/Services">Services</a></li>
+          <li><a href="/Bolg">Blog</a></li>
+          <li><a href="/About-us">About us</a></li>
+          <li><a href="/Contact-Us">Contact Us</a></li>
 
         </ul>
       </div>

@@ -1,13 +1,13 @@
 import React from "react";
-import "./Footer.css";
+import Logo from "./Logo";
 import "./Header.js";
 
-function Footer({ logo }) {
+function Footer() {
   return (
     <footer>
       <div className="container">
         <Left />
-        <Center logo={logo} />
+        <Center />
         <Right />
       </div>
       <div className="footer-bottom">
@@ -45,10 +45,12 @@ function Left() {
     </div>
   );
 }
-function Center({ logo }) {
+function Center() {
   return (
     <div className="center">
-      <div className="footer-logo">{logo}</div>
+      <div className="footer-logo">
+        <Logo />
+      </div>
       <p>
         Proactive predominated empower portals viable robust infrastructures.
         Convene simple scalable natives rather than empower portals viable

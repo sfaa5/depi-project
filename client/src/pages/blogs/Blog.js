@@ -1,28 +1,45 @@
-import { useState } from "react";
-import "./Blog.css";
+import { useEffect, useState } from "react";
+import "../../style/Blog.css"
+
+
 function Blog() {
+  const [blogData, setBlogData] = useState([]);
+
+  function fetchData(i) {
+    return blogData.map(function (blog, index) {
+      if (index === i)
+        return (
+          <BlogPost src={blog.imageUrl} alt={blog.title} key={blog.id}>
+            {blog.description}
+          </BlogPost>
+        );
+    });
+  }
+
+  useEffect(function () {
+    async function fetchBlog() {
+      const res = await fetch("http://localhost:8000/api/v1/blogs");
+
+      const data = await res.json();
+      /*  console.log(data.data.blogs); */
+
+      setBlogData(data.data.blogs);
+    }
+
+    fetchBlog();
+  }, []);
   const [show, setShow] = useState(1);
   return (
     <section className="blog-section">
       <div className="container">
         <div className="blog-posts">
-          {show === 1 ? (
-            <BlogPost src={"b1.jpg"} alt={"a"}>
-              Rapidious qntegrate distrbuted supply chains throuih marke
-              position bestn practces chain marke positonn bestin practcer
-              ieractvel fashon and sound qources forin iteractve fashion bestin
-              practce ieractve and sound qources for.
-            </BlogPost>
-          ) : show === 2 ? (
-            <BlogPost src={"b2.jpg"} alt={"a"}>
-              Rapidious qntegrate distrbuted supply chains throuih marke
-              position bestn practces chain marke positonn bestin practcer
-              ieractvel fashon and sound qources forin iteractve fashion bestin
-              practce ieractve and sound qources for.
-            </BlogPost>
-          ) : (
-            <BlogPostVid />
-          )}
+          {show === 1 && fetchData(0)}
+
+          {show === 2 && fetchData(1)}
+
+          {show === 3 && fetchData(2)}
+
+          {show === 4 && fetchData(3)}
         </div>
 
         <Pagination show={show} setShow={setShow} />
@@ -91,7 +108,12 @@ function Pagination({ show, setShow }) {
       <p className={show === 3 ? "active" : ""} onClick={() => setShow(3)}>
         3
       </p>
+      <p className={show === 4 ? "active" : ""} onClick={() => setShow(4)}>
+        4
+      </p>
     </div>
   );
 }
 export default Blog;
+
+// باى من غير سلام
