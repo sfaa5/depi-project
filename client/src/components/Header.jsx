@@ -42,7 +42,7 @@ const Header = () => {
       <div class="container">
         <ul>
 
-          <li><a href="">Home</a></li>
+          <li><a href="/">Home</a></li>
           <li><a href="#">Departments</a></li>
           <li><a href="doctors.html">Doctors</a></li>
           <li><a href="/Services">Services</a></li>
