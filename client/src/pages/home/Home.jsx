@@ -78,17 +78,17 @@ const Home = () => {
           <img src="./assets/images/home/medical-symbol.png" alt=""/>
           <div class="card-body">
 
-            <b class="card-title fs-3 fw-bold m-2 ">
+            <b class="card-title  ">
               Medical Treatment
             </b>
 
-            <p class="card-text m-2 ">
+            <p class="card-text  ">
               Lorem ipsum dolor sit amete
               consectetur adipisicing elite.
               vlote optio animi?
             </p>
 
-            <span class="card-text fw-bold fs-5 m-2">Read More »</span>
+            <span class="card-text ">Read More »</span>
           </div>
         </div>
 
@@ -97,8 +97,8 @@ const Home = () => {
           <img src="./assets/images/home/delivery-truck.png" alt=""/>
           <div class="card-body">
 
-            <b class="card-title fs-3 fw-bold m-2">
-              Medical Treatment
+            <b class="card-title ">
+           Emergency Help 
             </b>
             <p class="card-text m-2 ">
               Lorem ipsum dolor sit amete
@@ -106,7 +106,7 @@ const Home = () => {
               vlote optio animi?
             </p>
 
-            <span class="card-text fw-bold fs-5 m-2">Read More »</span>
+            <span class="card-text ">Read More »</span>
           </div>
         </div>
 
@@ -114,16 +114,16 @@ const Home = () => {
           <img src="./assets/images/home/hospital-building.png" alt=""/>
           <div class="card-body">
 
-            <b class="card-title fs-3 fw-bold m-2">
-              Medical Treatment
+            <b class="card-title ">
+              Medical Professionals
             </b>
 
-            <p class="card-text m-2 ">
+            <p class="card-text ">
               Lorem ipsum dolor sit amete
               consectetur adipisicing elite.
               vlote optio animi?
             </p>
-            <span class="card-text fw-bold fs-5 m-2">Read More »</span>
+            <span class="card-text ">Read More »</span>
           </div>
         </div>
 
@@ -131,15 +131,15 @@ const Home = () => {
           <img src="./assets/images/home/doctor.png" alt=""/>
           <div class="card-body">
 
-            <b class="card-title fs-3 fw-bold m-2">
-              Medical Treatment
+            <b class="card-title ">
+              Qualified Doctors
             </b>
-            <p class="card-text m-2 ">
+            <p class="card-text  ">
               Lorem ipsum dolor sit amete
               consectetur adipisicing elite.
               vlote optio animi?
             </p>
-            <span class="card-text fw-bold fs-5 m-2">Read More »</span>
+            <span class="card-text ">Read More »</span>
           </div>
         </div>
 
@@ -446,7 +446,19 @@ const Home = () => {
               <div class="col">8:00 am-10:00 pm</div>
             </div>
           </div>
+
+
+   
         </div>
+
+        <div className="footer-bottom">
+        <div className="container">
+          Copyright © 2021 <span className="site-name">Mukti</span>. All Rights
+          Reserved. By
+          <span className="developer">LabArtisan</span>
+        </div>
+      </div>
+
       </div>
     </section>
 
