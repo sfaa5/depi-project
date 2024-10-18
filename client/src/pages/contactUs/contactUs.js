@@ -67,7 +67,7 @@ function Form() {
 }
 function Info({ children, title }) {
   return (
-    <div className="info">
+    <div className="info-form">
       <h3 className="info-title">{title}</h3>
       {children}
     </div>

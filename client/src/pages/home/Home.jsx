@@ -199,7 +199,7 @@ const Home = () => {
     </section>
 
 
-    <section class=".info-Section">
+    <section class="info">
       <div class="container">
         <div class="informtions">
           <div class="single-info">

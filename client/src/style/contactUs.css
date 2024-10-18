@@ -30,19 +30,19 @@
   gap: 1.3rem;
 }
 
-.contact-info .information .info {
+.contact-info .information .info-form {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
   position: relative;
 }
 
-.contact-info .information .info .info-title {
+.contact-info .information .info-form .info-title {
   text-transform: capitalize;
   font-weight: 600;
 }
 
-.contact-info .information .info::after {
+.contact-info .information .info-form::after {
   content: "";
   position: absolute;
   left: -3.5%;
