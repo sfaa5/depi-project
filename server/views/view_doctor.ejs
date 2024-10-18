@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Admin courses</title>
+   <link rel="stylesheet" href="/fontawesome/css/all.min.css">
+   <link rel="stylesheet" href="/adminlte/dist/css/adminlte.min.css">
+</head>
+
+<body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
+   <!--begin::App Wrapper-->
+   <div class="app-wrapper">
+      <!--begin::Header-->
+      <nav class="app-header navbar navbar-expand bg-body" style="min-height: 50px;">
+         <!--begin::Container-->
+         <div class="container-fluid">
+            <!--begin::Start Navbar Links-->
+ 
+            <!--end::End Navbar Links-->
+         </div>
+         <!--end::Container-->
+      </nav>
+
+
+      <!--end::Header--> <!--begin::Sidebar-->
+      <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark">
+         <!--begin::Sidebar Brand-->
+         <div class="sidebar-brand">
+            <!--begin::Brand Link-->
+            <a href="/appointment" class="brand-link">
+               <span class="brand-text fw-light">AdminLTE 4</span> <!--end::Brand Text-->
+            </a>
+            <!--end::Brand Link-->
+         </div>
+         <!--end::Sidebar Brand--> <!--begin::Sidebar Wrapper-->
+         <div class="sidebar-wrapper">
+            <nav class="mt-2">
+               <!--begin::Sidebar Menu-->
+               <ul class="nav sidebar-menu flex-column" data-lte-toggle="treeview" role="menu" data-accordion="false">
+                  <li class="nav-item">
+                     <a href="/appointment" class="nav-link">
+                        <i class="nav-icon bi bi-speedometer"></i>
+                        <p>
+                           
+                            Appointments
+                           <i class="nav-arrow bi bi-chevron-right"></i>
+                        </p>
+                     </a>
+                  </li>
+                  <li class="nav-item">
+                     <a href="/appointment/new" class="nav-link">
+                        <i class="nav-icon bi bi-palette"></i>
+                        <p> Add Appointment</p>
+                     </a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a href="/doctor" class="nav-link">
+                       <i class="nav-icon bi bi-palette"></i>
+                       <p> Doctors</p>
+                    </a>
+                 </li>
+
+                 <li class="nav-item">
+                    <a href="/doctor/new" class="nav-link">
+                       <i class="nav-icon bi bi-palette"></i>
+                       <p> Add Doctor</p>
+                    </a>
+                 </li>
+               </ul>
+               <!--end::Sidebar Menu-->
+            </nav>
+         </div>
+         <!--end::Sidebar Wrapper-->
+      </aside>
+
+
+      <!--end::Sidebar--> <!--begin::App Main-->
+      <main class="app-main">
+         <!--begin::App Content Header-->
+         <div class="app-content-header">
+            <!--begin::Container-->
+            <div class="container-fluid">
+               <!--begin::Row-->
+               <div class="row">
+                  <div class="col-sm-6">
+                     <h3 class="mb-0">Doctor Details</h3>
+                  </div>
+
+               </div>
+            </div>
+         </div>
+         <div class="app-content">
+            <!--begin::Container-->
+            <div class="container-fluid">
+               <!--begin::Row-->
+               <div class="row g-4">
+                  <!--begin::Col-->
+                  <div class="col-md-6">
+                     <!--begin::Quick Example-->
+                     <div class="card card-primary card-outline mb-4 w-auto h-auto">
+                        <div class="card-header">
+                           <div class="card-title"><%= doctor.name %></div>
+                        </div>
+                        <!--end::Header--> <!--begin::Form-->
+                        <div class="card-body d-flex gap-3  ">
+
+                            <img class="w-50" src="../<%= doctor.img %>" alt="">
+
+
+                           <div class="mb-3">
+                              <p><strong>Name:</strong>
+                                 <%= doctor.name %>
+                              </p>
+                              <p><strong>Department:</strong>
+                                 <%= doctor.department %>
+                              </p>
+                  
+                              <p><strong>PhoneNumber:</strong> <%= doctor.phoneNumber %></p>
+                              <p><strong>Date:</strong> <%= doctor.date %></p>
+                              <a href="/doctor" class="btn btn-primary">Back to Courses</a>
+                              </div>
+                           </div>
+                          
+                           <!--end::Form-->
+                        </div>
+                     </div>
+                     <!--end::Col--> <!--begin::Col-->
+                  </div>
+                  <!--end::Row-->
+               </div>
+               <!--end::Container-->
+            </div>
+            <!--end::App Content-->
+         </main>
+
+
+         <!--end::App Main--> <!--begin::Footer-->
+         <footer class="app-footer">
+            <div class="float-end d-none d-sm-inline">Anything you want</div>
+            <strong>
+            Copyright &copy; 2014-2024&nbsp;
+            <a href="https://adminlte.io" class="text-decoration-none">AdminLTE.io</a>.
+            </strong>
+            All rights reserved.
+         </footer>
+      </div>
+      <script src="/adminlte/dist/js/adminlte.min.js"></script>
+   </body>
+</html>
