@@ -95,4 +95,6 @@ const deleteService = async function (request, response, next) {
   }
 };
 
-export { getServices, getService, createService, updateService, deleteService };
+module.exports= { getServices, getService, createService, updateService, deleteService };
+
+
