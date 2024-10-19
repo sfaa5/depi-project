@@ -9,7 +9,7 @@ function Blog() {
     return blogData.map(function (blog, index) {
       if (index === i)
         return (
-          <BlogPost src={blog.imageUrl} alt={blog.title} key={blog.id}>
+          <BlogPost src={`assets/images/blogs/${blog.imageUrl}`} alt={blog.title} key={blog.id}>
             {blog.description}
           </BlogPost>
         );

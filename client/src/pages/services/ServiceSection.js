@@ -10,7 +10,7 @@ function ServiceSection() {
       if (index === i)
         return (
           <SingleService
-            src={services.imageUrl}
+            src={`assets/images/home/${services.imageUrl}`}
             alt={services.title}
             key={services.id}>
             {services.description}
