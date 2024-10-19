@@ -95,4 +95,10 @@ const deleteBlog = async function (request, response, next) {
   }
 };
 
-export { getBlogs, getBlog, createBlog, updateBlog, deleteBlog };
+module.exports = {
+  getBlogs,
+  getBlog,
+  createBlog,
+  updateBlog,
+  deleteBlog
+};
