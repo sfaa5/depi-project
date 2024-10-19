@@ -1,11 +1,11 @@
-import express from "express";
-import {
+const express = require("express");
+const {
   getBlogs,
   getBlog,
   createBlog,
   updateBlog,
   deleteBlog,
-} from "../controllers/blogController.js";
+} = "../controllers/blogController.js";
 
 const router = express.Router();
 

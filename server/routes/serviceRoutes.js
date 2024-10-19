@@ -1,11 +1,11 @@
-import express from "express";
-import {
+const express = require("express");
+const  {
   getServices,
   getService,
   createService,
   updateService,
   deleteService,
-} from "../controllers/serviceController.js";
+} = "../controllers/serviceController.js";
 
 const router = express.Router();
 
