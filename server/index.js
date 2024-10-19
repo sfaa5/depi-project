@@ -11,6 +11,9 @@ const auth = require("./routes/auth");
 const frontAppointment = require("./routes/frontend/appointent"); 
 const frontDoctors = require("./routes/frontend/doctor")
 
+const blogRoutes = require("./routes/blogRoutes")
+
+const serviceRoutes = require("./routes/serviceRoutes")
 
 const express = require("express");
 const app = express();
@@ -39,12 +42,15 @@ app.use('/uploads', express.static('uploads'));
 
 app.use(cors());
 /**************************************************************************************************/
-// app.use("/api/courses", courses);
+
 app.use("/appointment", appointment);
 app.use("/doctor",doctor);
-// app.use("/api/authors", authors);
 app.use("/api/login", auth);
 app.use("/api/register", users);  
+
+
+app.use("/api/v1", blogRoutes);
+app.use("/api/v1", serviceRoutes);
 /**************************************************************************************************/
 
 // Serve AdminLTE files
@@ -62,10 +68,7 @@ app.get("/login", (req, res) => {
   res.render("login");
 });
 
-// Protected dashboard route
-// app.get("/dashboard", auth, (req, res) => {
-//   res.render("dashboard");
-// });
+
  
 app.get('/appointment/new', (req, res) => {
  // or fetch the appointment from your database

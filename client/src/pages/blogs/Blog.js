@@ -18,7 +18,7 @@ function Blog() {
 
   useEffect(function () {
     async function fetchBlog() {
-      const res = await fetch("http://localhost:8000/api/v1/blogs");
+      const res = await fetch("http://localhost:5000/api/v1/blogs");
 
       const data = await res.json();
       /*  console.log(data.data.blogs); */
