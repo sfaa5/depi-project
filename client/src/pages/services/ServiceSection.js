@@ -21,7 +21,7 @@ function ServiceSection() {
 
   useEffect(function () {
     async function fetchBlog() {
-      const res = await fetch("http://localhost:8000/api/v1/services");
+      const res = await fetch("http://localhost:5000/api/v1/services");
 
       const data = await res.json();
       /*  console.log(data.data.blogs); */
