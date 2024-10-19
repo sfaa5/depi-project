@@ -127,10 +127,7 @@ padding-bottom: 100px;
   max-width: 230px;
 }
 
-.Doctors img {
-min-height: 281px;
 
-}
 
 .specialized .card img{
   width: 40px;
@@ -405,23 +402,27 @@ margin-bottom: 10px;
 /*********doctors**********/
 
 .Doctors  {
-
-  position: relative;
+border-color: var(--white-color);
+position: relative;
 top: -130px;
+padding: 7rem 0 0 0;
 }
 
 .Doctors img{
+height: 210px;
 
-max-width: 300px;
 }
+
 .Doctors .docs {
   display: grid;
   grid-template-columns: repeat(auto-fit,minmax(180px, 1fr));
 justify-content: space-between;
-gap: 1.3rem;
+gap: 2.2rem;
+
 
 }
 .Doctors .docs .col{
+
   display: flex;
   flex-direction: column;
 }
@@ -434,9 +435,12 @@ gap: 1.3rem;
 
 
 .Doctors .mid{
+  position: relative;
+
+
 display: flex;
 flex-direction: column;
-  line-height: 1.6;
+  line-height: 2.5;
   padding: 8px;
   color: white;
 
@@ -477,10 +481,12 @@ flex-direction: column;
 }
 
 .Doctors .doc-btn{
-  position: absolute; /* or absolute depending on the context */
+  
+  position: relative; /* or absolute depending on the context */
   left: 50%;
   transform: translateX(-50%);
-  margin-top: 20px;
+  top: 30px;
+
 
 } 
 

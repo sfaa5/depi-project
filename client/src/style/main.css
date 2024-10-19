@@ -65,12 +65,19 @@ h6 {
 .btn {
   background-color: var(--color-primary);
   border: none;
-  font-size: 12px;
-  padding: 10px 8px;
+  font-size: 13px;
+  padding: 13px 18px;
   color: white;
   border-radius: 2px;
   align-self: flex-start;
 
+}
+
+.btn:hover{
+color: var(--color-primary);
+background-color: var(--white-color);
+border: solid 1px var(--color-primary);
+font-weight: 600;
 }
 
 .text-section {

@@ -1,6 +1,8 @@
 import {useEffect,useState} from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchDoctors } from '../../APIs/DoctorApis';
 
-import Doctor from '../../components/Doctor';
+import Doctor from './Doctor';
 import Modal from './Modal';
 import  "../../style/home.css"
 import Appointment from './Appointment';
@@ -14,30 +16,29 @@ const Home = () => {
   const openModal = () => setShowModal(true);
   const closeModal = () => setShowModal(false);
 
-  const [doctors, setDoctors] = useState([]);
+
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+
+
+
+  const dispatch = useDispatch();
+  const {doctors , status, error } = useSelector((state) => state.doctors);
 
 
   useEffect(() => {
-    const fetchDoctors = async () => {
-      try {
-        const response = await fetch('http://localhost:5000/api/doctor'); // Adjust the URL
-        if (!response.ok) {
-          throw new Error('Failed to fetch doctors');
-        }
-        const data = await response.json();
-        setDoctors(data);
-        setLoading(false);
-      } catch (err) {
-        setError(err.message);
-        setLoading(false);
-      }
-    };
+    dispatch(fetchDoctors());
+  }, [dispatch]);
 
-    fetchDoctors();
-  }, []);
 
+  if (status === 'loading') {
+    return <div className="animate-pulse">Loading...</div>;
+  }
+  
+
+  if (status === 'failed') {
+    return <div className="text-red-500">Error: {error}</div>;
+  }
+  
 
 
   return (
