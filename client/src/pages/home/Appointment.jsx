@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
+import { createAppointment } from "../../APIs/appointmentApi"; // Import the API function
 
 const Appointment = () => {
   const [formData, setFormData] = useState({
@@ -7,6 +7,7 @@ const Appointment = () => {
     department: "",
     phoneNumber: "",
     date: "",
+    DoctorName: "",
   });
 
   const handleChange = (e) => {
@@ -21,14 +22,11 @@ const Appointment = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post(
-        "http://localhost:5000/api/appointment",
-        formData
-      );
-      console.log("Appointment created:", response.data);
+      const result = await createAppointment(formData); // Use the API call from appointmentApi.js
+      console.log("Appointment created:", result);
 
-         // Show an alert on successful appointment creation
-         alert('Appointment created successfully!');
+      // Show an alert on successful appointment creation
+      alert("Appointment created successfully!");
 
       // Optionally, you can reset the form or show a success message
       setFormData({
@@ -39,22 +37,22 @@ const Appointment = () => {
         DoctorName: "",
       });
     } catch (error) {
-      console.error("Error creating appointment:", error.response.data);
-      // Handle error (e.g., show error message)
-         // Show an alert on successful appointment creation
-         alert('Error creating appointment. Please try again.');
+      console.error("Error creating appointment:", error);
+      alert("Error creating appointment. Please try again.");
     }
   };
 
   return (
-    <div class="container">
-      <div class="orders">
-        <div class=" left">
-          <div class="appointemnts">
-            <h1 class="hours ">
+    <div className="container">
+      <div className="orders">
+        <div className="left">
+          <div className="appointemnts">
+            <h1 className="hours ">
               24 hours <br></br> opening our services
             </h1>
 
+            {/* Appointment timing details */}
+  
             <div class="appointemnt ">
               <div class="col">satarday</div>
               <div class="col">8:00 am-10:00 pm</div>
@@ -80,6 +78,7 @@ const Appointment = () => {
               <div class="col">satarday</div>
               <div class="col">8:00 am-10:00 pm</div>
             </div>
+
           </div>
         </div>
 
@@ -98,20 +97,19 @@ const Appointment = () => {
                 required
               />
 
-
-<select
-                  id="department"
-                  name="department"
-                  value={formData.department}
-                  onChange={handleChange}
-                  required
-                >
-                  <option value="">Select Department</option>
-                  <option value="Cardiology">Cardiology</option>
-                  <option value="Neurology">Neurology</option>
-                  <option value="Pediatrics">Pediatrics</option>
-                  <option value="Oncology">Oncology</option>
-                </select>
+              <select
+                id="department"
+                name="department"
+                value={formData.department}
+                onChange={handleChange}
+                required
+              >
+                <option value="">Select Department</option>
+                <option value="Cardiology">Cardiology</option>
+                <option value="Neurology">Neurology</option>
+                <option value="Pediatrics">Pediatrics</option>
+                <option value="Oncology">Oncology</option>
+              </select>
 
               <input
                 type="text"
@@ -132,7 +130,7 @@ const Appointment = () => {
               <input
                 type="text"
                 name="DoctorName"
-                placeholder="DoctorName"
+                placeholder="Doctor's name"
                 value={formData.DoctorName}
                 onChange={handleChange}
                 required
