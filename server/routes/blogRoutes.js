@@ -5,7 +5,7 @@ const {
   createBlog,
   updateBlog,
   deleteBlog,
-} = "../controllers/blogController.js";
+} = require("../controllers/blogController.js");
 
 const router = express.Router();
 
@@ -15,4 +15,4 @@ router.post("/blogs", createBlog);
 router.patch("/blogs/:id", updateBlog);
 router.patch("/blogs/:id", deleteBlog);
 
-export default router;
+module.exports = router;

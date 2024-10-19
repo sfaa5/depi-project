@@ -15,4 +15,4 @@ router.post("/services", createService);
 router.patch("/services/:id", updateService);
 router.patch("/services/:id", deleteService);
 
-export default router;
+module.exports = router;
