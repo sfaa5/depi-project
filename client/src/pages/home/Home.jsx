@@ -11,20 +11,19 @@ import { motion } from "framer-motion";
 import Landing from "./supComponent/Landing";
 import Specialized from "./supComponent/Specialized";
 import BestCenters from "./supComponent/BestCenters";
+import Doctors from "./supComponent/Doctors";
 
 const Home = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
 
-  const [showModal, setShowModal] = useState(false);
+ 
 
-  const openModal = () => setShowModal(true);
-  const closeModal = () => setShowModal(false);
 
-  const [loading, setLoading] = useState(true);
 
-  const dispatch = useDispatch();
-  const { doctors, status, error } = useSelector((state) => state.doctors);
+
+
+ 
 
   // useEffect(()=>{
   //     // Dispatch action to fetch doctors
@@ -85,14 +84,7 @@ const Home = () => {
     };
   }, [sectionRef]);
 
-  if (status === "loading") {
-    return <div className="animate-pulse">Loading...</div>;
-  }
-
-  if (status === "failed") {
-    return <div className="text-red-500">Error: {error}</div>;
-  }
-
+  
   return (
     <>
       <Landing />
@@ -137,23 +129,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section class="Doctors">
-        <div class="container ">
-          <div class="text-section">
-            <p>meet our</p>
-            <h1>mukti professional docrors</h1>
-          </div>
-
-          <Doctor doctors={doctors} />
-
-          <button className="btn doc-btn" onClick={openModal}>
-            View All Doctors
-          </button>
-
-          {/* Render the Modal if showModal is true */}
-          {showModal && <Modal doctors={doctors} onClose={closeModal} />}
-        </div>
-      </section>
+      <Doctors/>
 
       <section class="order">
         <Appointment />
