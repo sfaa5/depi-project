@@ -95,7 +95,7 @@ const Home = () => {
 
 
         <div class="card">
-          <img src="./assets/images/home/delivery-truck.png" alt=""/>
+          <img src="./assets/images/home/delivery-truck.png" alt="Medical Treatment"/>
           <div class="card-body">
 
             <b class="card-title ">
@@ -112,7 +112,7 @@ const Home = () => {
         </div>
 
         <div class="card">
-          <img src="./assets/images/home/hospital-building.png" alt=""/>
+          <img src="./assets/images/home/hospital-building.png" alt="Medical Treatment"/>
           <div class="card-body">
 
             <b class="card-title ">
@@ -129,7 +129,7 @@ const Home = () => {
         </div>
 
         <div class="card">
-          <img src="./assets/images/home/doctor.png" alt=""/>
+          <img src="./assets/images/home/doctor.png" alt="Medical Treatment"/>
           <div class="card-body">
 
             <b class="card-title ">

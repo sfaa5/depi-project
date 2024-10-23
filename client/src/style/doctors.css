@@ -1,0 +1,32 @@
+/* Doctor Cards */
+.doctor-section .container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .doctor-section .container .card {
+    width: calc(25% - 20px);
+    background-color: #fff;
+    /* border: 1px solid #eee; */
+    border-radius: 5px;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .doctor-section .container .card .card-img img {
+    width: 70%;
+    height: auto;
+    padding: 50px;
+  }
+
+  .doctor-section .container .card  .card-body {
+    padding: 10px;
+  }
+  .doctor-section .container .card  .card-body  .card-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  .doctor-section .container .card  .card-body  .card-text {
+    color: #777;
+  }

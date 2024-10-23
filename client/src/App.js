@@ -11,6 +11,7 @@ import Service from './pages/services/ServiceSection'
 import "./style/all.min.css";
 import  "./style/main.css";
 import { BrowserRouter,  Route, Routes,useLocation } from "react-router-dom";
+import Doctors from './pages/doctors/Doctors';
 
 
 
@@ -25,6 +26,7 @@ const location = useLocation()
 
   <Routes> 
     <Route path="/" element={  <Home/>}  />
+    <Route path='/doctors' element={<Doctors/>} />
     <Route path="Services" element={<Service/>} />
    <Route path="Bolg" element={<Blog/>} />
    <Route path="contact-Us" element={<Contact/>} />
