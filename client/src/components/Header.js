@@ -54,10 +54,10 @@ const Header = () => {
               <a href="/">Home</a>
             </li>
             <li>
-              <a href="#">Departments</a>
+              <a href="/Departments">Departments</a>
             </li>
             <li>
-              <a href="doctors">Doctors</a>
+              <a href="/doctors">Doctors</a>
             </li>
             <li>
               <a href="/Services">Services</a>
