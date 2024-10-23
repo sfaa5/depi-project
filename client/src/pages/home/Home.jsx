@@ -9,6 +9,8 @@ import Appointment from "./Appointment";
 
 import { motion } from "framer-motion";
 
+import Landing from "./supComponent/Landing";
+
 const Home = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
@@ -23,12 +25,12 @@ const Home = () => {
   const dispatch = useDispatch();
   const { doctors, status, error } = useSelector((state) => state.doctors);
 
-  // useEffect(() => {
-  //   dispatch(fetchDoctors());
-  // }, [dispatch]);
 
   useEffect(() => {
-    console.log("SectionRef:", sectionRef.current);
+    // Dispatch action to fetch doctors
+    dispatch(fetchDoctors());
+  
+    // Create and set up the IntersectionObserver
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -40,18 +42,20 @@ const Home = () => {
         threshold: 0.1, // Adjust threshold as needed
       }
     );
-
+  
+    // Check if sectionRef is defined, and observe it
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
     }
-
-    console.log("SectionRef:", sectionRef.current);
+  
+    // Cleanup function to stop observing when the component unmounts
     return () => {
       if (sectionRef.current) {
         observer.unobserve(sectionRef.current);
       }
     };
-  }, []);
+  }, [dispatch, sectionRef]);
+
 
   if (status === "loading") {
     return <div className="animate-pulse">Loading...</div>;
@@ -63,7 +67,7 @@ const Home = () => {
 
   return (
     <>
-      <motion.div
+      {/* <motion.div
         className="landing"
         initial={{ opacity: 0 }} // Optional: To fade in the landing div
         animate={{ opacity: 1 }} // Optional: Fade in effect for the landing div
@@ -88,7 +92,10 @@ const Home = () => {
             <button class="btn btn-primary">Get Appoinments »</button>
           </motion.div>
         </div>
-      </motion.div>
+      </motion.div> */}
+      <Landing/>
+
+
 
       <div className="specialized">
         <div className="container" ref={sectionRef}>
