@@ -1,7 +1,7 @@
 import { useEffect } from "react";
-import styles from '../../style/Modal.module.css'; 
+import styles from '../../../style/Modal.module.css'; 
 import { useDispatch, useSelector } from "react-redux";
-import { fetchDoctors } from "../../APIs/DoctorApis";
+import { fetchDoctors } from "../../../APIs/DoctorApis";
 
 const Modal = ({  onClose }) => {
 

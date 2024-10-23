@@ -1,88 +1,17 @@
 import { useEffect, useRef, useState } from "react";
 
 
-
-import Doctor from "./Doctor";
-import Modal from "./Modal";
 import "../../style/home.css";
-import Appointment from "./Appointment";
+import Appointment from "./supComponent/Appointment";
 
-import { motion } from "framer-motion";
+
 import Landing from "./supComponent/Landing";
 import Specialized from "./supComponent/Specialized";
 import BestCenters from "./supComponent/BestCenters";
 import Doctors from "./supComponent/Doctors";
+import Info from "./supComponent/Info";
 
 const Home = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef(null);
-
- 
-
-
-
-
-
- 
-
-  // useEffect(()=>{
-  //     // Dispatch action to fetch doctors
-  //     dispatch(fetchDoctors());
-  // },[dispatch])
-
-  useEffect(() => {
-    // Create and set up the IntersectionObserver
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true); // Set visibility to true when section is in view
-          observer.disconnect(); // Stop observing once the section is visible
-        }
-      },
-      {
-        threshold: 0.1, // Adjust threshold as needed
-      }
-    );
-
-    // Check if sectionRef is defined, and observe it
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    // Cleanup function to stop observing when the component unmounts
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
-  }, [sectionRef]);
-
-  useEffect(() => {
-    // Create and set up the IntersectionObserver
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true); // Set visibility to true when section is in view
-          observer.disconnect(); // Stop observing once the section is visible
-        }
-      },
-      {
-        threshold: 0.1, // Adjust threshold as needed
-      }
-    );
-
-    // Check if sectionRef is defined, and observe it
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    // Cleanup function to stop observing when the component unmounts
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
-  }, [sectionRef]);
 
   
   return (
@@ -93,46 +22,12 @@ const Home = () => {
 
       <BestCenters />
 
-      <section class="info">
-        <div class="container">
-          <div class="informtions">
-            <div class="single-info">
-              <i class="fa-solid fa-hospital-user"></i>
-              <div class="details ">
-                <strong>152+</strong>
-                <span>patients every day</span>
-              </div>
-            </div>
-
-            <div class="single-info">
-              <i class="fa-solid fa-hospital-user"></i>
-              <div class="details">
-                <strong>122+</strong>
-                <span>patients every day</span>
-              </div>
-            </div>
-            <div class="single-info">
-              <i class="fa-solid fa-hospital-user"></i>
-              <div class="details ">
-                <strong>3+</strong>
-                <span>patients every day</span>
-              </div>
-            </div>
-            <div class="single-info">
-              <i class="fa-solid fa-hospital-user"></i>
-              <div class="details d-flex flex-column">
-                <strong>105+</strong>
-                <span>patients every day</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Info/>
 
       <Doctors/>
 
    
-        <Appointment />
+      <Appointment />
 
 
       <section class="news-feed ">

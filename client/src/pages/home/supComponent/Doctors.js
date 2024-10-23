@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import Doctor from '../Doctor'
-import Modal from '../Modal'
+import Modal from './Modal'
 
 
 const Doctors = () => {

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { createAppointment } from "../../APIs/appointmentApi"; // Import the API function
+import { createAppointment } from "../../../APIs/appointmentApi"; // Import the API function
 
 const Appointment = () => {
   const [formData, setFormData] = useState({
