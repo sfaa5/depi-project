@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import Doctor from '../Doctor'
 import Modal from '../Modal'
-import { useDispatch, useSelector } from "react-redux";
-import { fetchDoctors } from "../../../APIs/DoctorApis";
+
 
 const Doctors = () => {
+
+    
 
 
     const [showModal, setShowModal] = useState(false);
@@ -12,14 +13,7 @@ const Doctors = () => {
     const openModal = () => setShowModal(true);
     const closeModal = () => setShowModal(false);
 
-    const dispatch = useDispatch();
-    const { doctors, status, error } = useSelector((state) => state.doctors);
-
-    useEffect(()=>{
-        // Dispatch action to fetch doctors
-        dispatch(fetchDoctors());
-    },[dispatch])
-
+ 
 
 
   return (
@@ -30,14 +24,14 @@ const Doctors = () => {
         <h1>mukti professional docrors</h1>
       </div>
 
-      <Doctor doctors={doctors} />
+      <Doctor/>
 
       <button className="btn doc-btn" onClick={openModal}>
         View All Doctors
       </button>
 
       {/* Render the Modal if showModal is true */}
-      {showModal && <Modal doctors={doctors} onClose={closeModal} />}
+      {showModal && <Modal onClose={closeModal} />}
     </div>
   </section>
   )

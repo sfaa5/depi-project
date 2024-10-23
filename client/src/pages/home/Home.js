@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchDoctors } from "../../APIs/DoctorApis";
+
+
 
 import Doctor from "./Doctor";
 import Modal from "./Modal";
@@ -131,9 +131,9 @@ const Home = () => {
 
       <Doctors/>
 
-      <section class="order">
+   
         <Appointment />
-      </section>
+
 
       <section class="news-feed ">
         <div class="container">

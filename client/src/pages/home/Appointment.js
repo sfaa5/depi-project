@@ -43,6 +43,7 @@ const Appointment = () => {
   };
 
   return (
+    <section class="order">
     <div className="container">
       <div className="orders">
         <div className="left">
@@ -144,6 +145,7 @@ const Appointment = () => {
         </div>
       </div>
     </div>
+    </section>
   );
 };
 

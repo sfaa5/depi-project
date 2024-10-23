@@ -1,7 +1,18 @@
-import React from 'react';
-import styles from '../../style/Modal.module.css'; // Updated to import CSS module
+import { useEffect } from "react";
+import styles from '../../style/Modal.module.css'; 
+import { useDispatch, useSelector } from "react-redux";
+import { fetchDoctors } from "../../APIs/DoctorApis";
 
-const Modal = ({ doctors, onClose }) => {
+const Modal = ({  onClose }) => {
+
+  const dispatch = useDispatch();
+  const { doctors, status, error } = useSelector((state) => state.doctors);
+
+  useEffect(()=>{
+      // Dispatch action to fetch doctors
+      dispatch(fetchDoctors());
+  },[dispatch])
+
   return (
     <div className={styles['modal-overlay']}>
       <div className={styles['modal-content']}>
