@@ -16,7 +16,7 @@ router.post("/addAdmin", async (req, res) => {
   // Check if the user already exists
   let user = await User.findOne({ email: req.body.email });
   if (user) return res.status(400).send("The user already exists");
-  // if (user) return res.render('addAdmin', { errors: ["Admin with this email already exists."] });
+
 
   // Create new admin user
   const salt = await bcrypt.genSalt(10);
@@ -28,7 +28,7 @@ router.post("/addAdmin", async (req, res) => {
   
   // Send the token in the response header and return the admin details
   res.header('x-auth-token', token).send(_.pick(user, ['id', 'name', 'phone', 'email']));
-  // res.header('x-auth-token', token).redirect('/admins');
+
 });
 
 

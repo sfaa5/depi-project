@@ -298,7 +298,7 @@
                                 </div>
                                 <!--end::Header--> <!--begin::Form-->
 
-                                <form id="editCourseForm" enctype="multipart/form-data">
+                                <form id="editDoctorForm" enctype="multipart/form-data">
                                     <div class="card-body">
                                         <% if (errors.length> 0) { %>
                                             <div class="alert alert-danger">
@@ -315,7 +315,7 @@
                                                     <div class="form-group">
                                                         <label for="name">name</label>
                                                         <input type="text" class="form-control" id="name" name="name"
-                                                            required minlength="5" value="<%= appointment.name %>">
+                                                            required minlength="5" value="<%= doctor.name %>">
                                                     </div>
                                                 </div>
 
@@ -338,12 +338,11 @@
 
                                                 <div class="mb-3">
                                                     <div class="form-group">
-                                                        <label for="date">Date</label>
-                                                        <input type="date" class="form-control" id="date" name="date"
-                                                        required  value="<%=  appointment.date || '' %>">
-                                                    
+                                                        <label for="courseCover">Course Cover</label>
+                                                        <input type="file" class="form-control-file" id="img"
+                                                            name="img">
                                                     </div>
-                                                </div>  
+                                                </div>
 
 
                                                                  
@@ -351,31 +350,12 @@
                                                     <div class="form-group">
                                                         <label for="phoneNumber">phoneNumber</label>
                                                         <input type="text" class="form-control" id="phoneNumber"
-                                                            name="phoneNumber" required value="<%= appointment.phoneNumber || '' %>">
+                                                            name="phoneNumber" required value="<%= doctor.phoneNumber || '' %>">
                                                     </div>
                                                 </div>
 
-                                                <div class="mb-3">
-                                                    <div class="form-group">
-                                                        <label for="DoctorName">Doctor</label>
-                                                        <select class="form-control" id="DoctorName" name="DoctorName" required>
-                                                            <option value="">Select Doctor</option>
-                                                            <% doctors.forEach(doc => { %>
-                                                                <option value="<%= doc.name %>" <%= doc.name === selectedDoc ? "selected" : "" %> >
-                                                                    <%= doc.name %>
-                                                                </option>
-                                                            <% }) %>
-                                                        </select>
-                                                        
-                                                    </div>
-                                                </div>
                                                 
-                                                
-
-
-
-
-
+                                            
 
                     
                              
@@ -412,29 +392,29 @@
 
 
     <script>
-        document.getElementById("editCourseForm").addEventListener("submit", async function (event) {
+        document.getElementById("editDoctorForm").addEventListener("submit", async function (event) {
             event.preventDefault();  // Prevent the default form submission
 
-            const form = document.getElementById("editCourseForm");
+            const form = document.getElementById("editDoctorForm");
             const formData = new FormData(form);
-            const appointmentId = "<%= appointment._id %>";
+            const doctorId = "<%= doctor._id %>";
 
             try {
-                const response = await fetch(`/appointment/${appointmentId}`, {
+                const response = await fetch(`/doctor/${doctorId}`, {
                     method: 'PUT',
                     body: formData
                 });
 
                 if (response.ok) {
-                    alert("appointment updated successfully");
-                    window.location.href = "/appointment";  // Redirect to appointment list
+                    alert("doctor updated successfully");
+                    window.location.href = "/doctor";  // Redirect to appointment list
                 } else {
                     const errorData = await response.json();
-                    alert("Failed to update course: " + errorData.join(", "));
+                    alert("Failed to update doctor: " + errorData.join(", "));
                 }
             } catch (error) {
                 console.error("Error:", error);
-                alert("An error occurred while updating the appointment");
+                alert("An error occurred while updating the doctor");
             }
         });
     </script>

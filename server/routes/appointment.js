@@ -24,10 +24,10 @@ router.get("/:id/edit", async (req, res) => {
   try {
     const appointment = await Appointment.findById(req.params.id);
     const doctors = await Doctor.find();
-    console.log(doctors);
-    console.log("up");
-    // Fetch all doctors
-    const selectedDoc = appointment.DoctorName; // The doctor assigned to this appointment
+    const doctor = await Doctor.findById(appointment.DoctorName); // Fetch doctor details
+    const selectedDoc = doctor ? doctor.name : null; // Get the doctor's name
+    
+    console.log(selectedDoc)
 
     if (!appointment) {
       return res.status(404).send("Appointment not found");
@@ -76,15 +76,15 @@ router.get("/:id", async (req, res) => {
 });
 
 /**************************************************************************************************/
-// Adding course upload.single('img'),
+// Adding appointment
 router.post("/", async (req, res) => {
   console.log(req.body);
-  console.log(req.appointment);
+ 
   try {
     const { error } = handleAppointmentValidation(req.body);
 
     if (error) {
-      console.log("777");
+
       const errorMessages = error.details.map((err) => err.message);
       return res
         .status(400)
@@ -136,63 +136,56 @@ router.post("/", async (req, res) => {
 
 /**************************************************************************************************/
 // // Updating doctor
-// // Updating doctor
 router.put("/:id", async (req, res) => {
-  console.log("track");
+  try {
+  
 
-  // Validate the appointment
-  const { error } = handleAppointmentValidation(req.body);
-  if (error) {
-    const errorMessages = error.details.map((err) => err.message);
-    return res
-      .status(400)
-      .render("edit_appointment", {
-        errors: errorMessages,
-        appointment: req.body,
-      });
+    // Validate the appointment
+
+console.log("down")
+    const doctor = await Doctor.findOne({
+      name: req.body.DoctorName,
+      department: req.body.department,
+    });
+
+    if (!doctor) {
+      return res.status(404).send({ message: "Doctor not found" });
+    }
+
+    let appointment = await Appointment.findById(req.params.id);
+    if (!appointment) {
+      return res
+        .status(404)
+        .send("The appointment with the given ID was not found");
+    }
+
+    console.log("yyyyy");
+    // Prepare the updated data
+    const updatedData = {
+      name: req.body.name,
+      department: req.body.department,
+      phoneNumber: req.body.phoneNumber,
+      date: req.body.date,
+      isPublished: req.body.isPublished,
+      DoctorName: doctor._id,
+    };
+    console.log("2yyyyy");
+
+    // Update the appointment in the database
+    appointment = await Appointment.findByIdAndUpdate(
+      req.params.id,
+      updatedData,
+      { new: true }
+    );
+    res.status(200).send(appointment);
+
+  } catch (err) {
+    // Log the error and send a server error response
+    console.error("Error updating appointment:", err);
+    res.status(500).send({ message: "Server error" });
   }
-
-  const doctor = await Doctor.findOne({
-    name: req.body.DoctorName,
-    department: req.body.department,
-  });
-
-  if (!doctor) {
-    return res.status(404).send({ message: "Doctor not found" });
-  }
-
-  let appointment = await Appointment.findById(req.params.id);
-  if (!appointment)
-    return res
-      .status(404)
-      .send("The appointment with the given ID was not found");
-
-  console.log("yyyyy");
-  // Prepare the updated data
-  const updatedData = {
-    name: req.body.name,
-    department: req.body.department,
-    phoneNumber: req.body.phoneNumber,
-    date: req.body.date,
-    isPublished: req.body.isPublished,
-    DoctorName: doctor._id,
-  };
-  console.log("2yyyyy");
-
-  // Uncomment if you handle image uploads
-  // if (req.file) {
-  //   req.body.img = req.file.path.replace(/\\/g, '/');
-  //   updatedData.img = req.file.path;
-  // }
-
-  // Update the appointment in the database
-  appointment = await Appointment.findByIdAndUpdate(
-    req.params.id,
-    updatedData,
-    { new: true }
-  );
-  res.status(200).send(appointment);
 });
+
 
 /**************************************************************************************************/
 // Deleting course

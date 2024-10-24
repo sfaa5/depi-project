@@ -2,6 +2,7 @@ const Joi = require("joi");
 const path = require('path');
 Joi.objectId = require("joi-objectId")(Joi);
 const cors = require('cors');
+const methodOverride = require('method-override');
 
 const appointment = require("./routes/appointment");
 const doctor =require("./routes/doctor")
@@ -37,6 +38,7 @@ mongoose
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.use('/uploads', express.static('uploads'));
+app.use(methodOverride('_method'));
 app.use(cors());
 /**************************************************************************************************/
 
@@ -65,10 +67,10 @@ app.get("/login", (req, res) => {
 
 
  
-app.get('/appointment/new', (req, res) => {
- // or fetch the appointment from your database
-  res.render('add_course');
-});
+// app.get('/appointment/new', (req, res) => {
+//  // or fetch the appointment from your database
+//   res.render('add_course');
+// });
 
 /**************************************************************************************************/
  
