@@ -1,6 +1,7 @@
  import  "../../style/Department.css"
  
  function Departments() {
+    
     return (
       <section className="departments-section">
         <div className="container">

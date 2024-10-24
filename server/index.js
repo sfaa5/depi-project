@@ -5,15 +5,13 @@ const cors = require('cors');
 
 const appointment = require("./routes/appointment");
 const doctor =require("./routes/doctor")
-// const authors = require("./routes/authors");
 const users = require("./routes/users");
 const auth = require("./routes/auth");
 const frontAppointment = require("./routes/frontend/appointent"); 
 const frontDoctors = require("./routes/frontend/doctor")
 
-const blogRoutes = require("./routes/blogRoutes")
-
-const serviceRoutes = require("./routes/serviceRoutes")
+const blogRoutes = require("./routes/frontend/blogRoutes")
+const serviceRoutes = require("./routes/frontend/serviceRoutes")
 
 const express = require("express");
 const app = express();
@@ -39,7 +37,6 @@ mongoose
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.use('/uploads', express.static('uploads'));
-
 app.use(cors());
 /**************************************************************************************************/
 
@@ -49,8 +46,6 @@ app.use("/api/login", auth);
 app.use("/api/register", users);  
 
 
-app.use("/api/v1", blogRoutes);
-app.use("/api/v1", serviceRoutes);
 /**************************************************************************************************/
 
 // Serve AdminLTE files
@@ -77,9 +72,11 @@ app.get('/appointment/new', (req, res) => {
 
 /**************************************************************************************************/
  
-// Register API routes
-app.use('/api/appointment', frontAppointment);  // API route for courses
+//  API routes
+app.use('/api/appointment', frontAppointment);  
 app.use('/api/doctor',frontDoctors)
+app.use("/api/v1", blogRoutes);
+app.use("/api/v1", serviceRoutes);
 
 /**************************************************************************************************/
 // Environment Variables:

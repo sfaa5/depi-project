@@ -5,7 +5,7 @@ const {
   createBlog,
   updateBlog,
   deleteBlog,
-} = require("../controllers/blogController.js");
+} = require("../../controllers/blogController");
 
 const router = express.Router();
 

@@ -4,10 +4,10 @@ import { motion } from 'framer-motion'
 import { useDispatch, useSelector } from "react-redux";
 import { fetchDoctors } from "../../APIs/DoctorApis";
 
-const Doctor = () => {
+const Doctor = ({isVisible}) => {
 
   const dispatch = useDispatch();
-  const { doctors, status, error } = useSelector((state) => state.doctors);
+  const { doctors } = useSelector((state) => state.doctors);
 
   useEffect(()=>{
       // Dispatch action to fetch doctors
@@ -23,7 +23,7 @@ const Doctor = () => {
           className="col"
           key={doctor.id}
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          animate={ isVisible? {opacity: 1, y: 0 }:{} }
           transition={{ duration: 0.5, delay: index * 0.2 }}
         >
           <img src={`http://localhost:5000/${doctor.img}`} alt={doctor.name} />

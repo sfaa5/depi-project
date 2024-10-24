@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { createAppointment } from "../../../APIs/appointmentApi"; // Import the API function
-
+import { motion } from "framer-motion";
 const Appointment = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -17,6 +17,38 @@ const Appointment = () => {
       [name]: value,
     });
   };
+
+   // Variants for motion animations
+   const containerVariants = {
+    hidden: { opacity: 0, x: '-100vw' },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { type: 'spring', stiffness: 50, delay: 0.3 }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { type: 'spring', stiffness: 30, delay: 0.2 }
+    }
+  };
+
+  const buttonVariants = {
+    hover: {
+      scale: 1.1,
+      textShadow: "0px 0px 8px rgb(255, 255, 255)",
+      boxShadow: "0px 0px 8px rgb(255, 255, 255)",
+      transition: {
+        yoyo: Infinity // Make the animation repeat
+      }
+    }
+  };
+
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -43,8 +75,13 @@ const Appointment = () => {
   };
 
   return (
-    <section class="order">
-    <div className="container">
+    <motion.section
+    className="order"
+    variants={containerVariants}
+    initial="hidden"
+    animate="visible"
+  >
+    <div className="container ">
       <div className="orders">
         <div className="left">
           <div className="appointemnts">
@@ -52,33 +89,13 @@ const Appointment = () => {
               24 hours <br></br> opening our services
             </h1>
 
-            {/* Appointment timing details */}
-  
-            <div class="appointemnt ">
-              <div class="col">satarday</div>
-              <div class="col">8:00 am-10:00 pm</div>
-            </div>
-
-            <div class="appointemnt">
-              <div class="col">satarday</div>
-              <div class="col">8:00 am-10:00 pm</div>
-            </div>
-            <div class="appointemnt">
-              <div class="col">satarday</div>
-              <div class="col">8:00 am-10:00 pm</div>
-            </div>
-            <div class="appointemnt">
-              <div class="col">satarday</div>
-              <div class="col">8:00 am-10:00 pm</div>
-            </div>
-            <div class="appointemnt">
-              <div class="col">satarday</div>
-              <div class="col">8:00 am-10:00 pm</div>
-            </div>
-            <div class="appointemnt">
-              <div class="col">satarday</div>
-              <div class="col">8:00 am-10:00 pm</div>
-            </div>
+              {/* Appointment timing details */}
+              {['Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday'].map((day, index) => (
+                <div className="appointemnt" key={index} variants={itemVariants}>
+                  <div className="col">{day}</div>
+                  <div className="col">8:00 am-10:00 pm</div>
+                </div>
+              ))}
 
           </div>
         </div>
@@ -145,7 +162,7 @@ const Appointment = () => {
         </div>
       </div>
     </div>
-    </section>
+    </motion.section>
   );
 };
 

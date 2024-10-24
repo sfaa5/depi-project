@@ -10,10 +10,9 @@ import Specialized from "./supComponent/Specialized";
 import BestCenters from "./supComponent/BestCenters";
 import Doctors from "./supComponent/Doctors";
 import Info from "./supComponent/Info";
+import NewsFed from "./supComponent/NewsFed";
 
 const Home = () => {
-
-  
   return (
     <>
       <Landing />
@@ -30,62 +29,9 @@ const Home = () => {
       <Appointment />
 
 
-      <section class="news-feed ">
-        <div class="container">
-          <div class="text-section">
-            <p>news feed</p>
-            <h1>be the first to new stories</h1>
-          </div>
+      <NewsFed/>
 
-          <div class="cards">
-            <div class="card">
-              <img src="./assets/images/home/1 (1).jpg" alt="" />
 
-              <div class="mid ">
-                <span>by admin march 24, 2021</span>
-                <h5>globa empoer extenve chanels extensve creat method</h5>
-                <p>
-                  complete actuaze centi centrcing colora and shatin without
-                  anstaled anding bases aweme meicalpus template.
-                </p>
-              </div>
-              <b>read more</b>
-            </div>
-
-            <div class="card">
-              <img src="./assets/images/home/2 (1).jpg" alt="" />
-
-              <div class="mid ">
-                <span>by admin march 24, 2021</span>
-                <strong>
-                  globa empoer extenve chanels extensve creat method
-                </strong>
-                <p>
-                  complete actuaze centi centrcing colora and shatin without
-                  anstaled anding bases aweme meicalpus template.
-                </p>
-              </div>
-              <b>read more</b>
-            </div>
-
-            <div class="card">
-              <img src="./assets/images/home/3.jpg" alt="" />
-
-              <div class="mid ">
-                <span>by admin march 24, 2021</span>
-                <strong>
-                  globa empoer extenve chanels extensve creat method
-                </strong>
-                <p>
-                  complete actuaze centi centrcing colora and shatin without
-                  anstaled anding bases aweme meicalpus template.
-                </p>
-              </div>
-              <b>read more</b>
-            </div>
-          </div>
-        </div>
-      </section>
 
       <section class="logos">
         <div class="container">
